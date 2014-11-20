@@ -1,0 +1,93 @@
+@import "../jeet/index";
+
+/* @include edit(); */
+
+/************************
+*		VARIABLES		*
+************************/
+
+@import url("http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500");
+@import url("http://fonts.googleapis.com/css?family=Fira+Mono");
+
+
+/*	Colors
+************************/
+$white: rgba(255,255,255,1);
+$black: rgba(30,30,30,1);
+$grey: rgba(150,150,150,1);
+$green: #00bc8c;
+
+/************************
+*		TYPOGRAPHY		*
+************************/
+
+html, body, div, a, span{
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+	-webkit-tap-highlight-color: transparent;  // i.e. Nexus5/Chrome and Kindle Fire HD 7''
+	outline: none !important;
+}
+
+body 	{
+	font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+	color: $black;
+	background-color: $white;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.6em;
+	margin: 0px;
+	text-align: left;
+	text-rendering: optimizeLegibility;
+	font-variant-ligatures: inherit;
+	overflow-x: hidden;
+	word-wrap: normal;
+	
+	transition: font-size 0s !important;
+}
+
+.mononumber{
+	font-family: "Fira Mono";
+}
+
+a	{
+	color: $green;
+	text-decoration: underline;
+	
+	transition: all 0.3s;
+	
+	&:hover	{
+		color: $black;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+
+b, strong	{
+	font-weight: 500;
+}
+
+p	{
+	margin-bottom: 0.7rem;
+}
+
+
+
+header{
+	font-size: 180%;
+	color: #404040;
+	text-align: center;
+	line-height: 1.4em;
+	font-weight: 300 !important;
+	padding-bottom: 2em;
+	padding-top: 0.7em;
+	background-color: #f4f4f4;
+}
+
+
+h1{
+	font-weight: 300;
+	line-height: 1.3em;
+}
+
+h3{
+	font-weight: 500;
+}
