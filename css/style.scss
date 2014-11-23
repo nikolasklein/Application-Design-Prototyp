@@ -162,11 +162,12 @@ section header h1{
 
 .numberwrapper{
 	float: left;
-	width: 75px;
+	width: 0px;
 	position: absolute;
 	left: 0px;
 	top: 0px;
 	height: 100%;
+	overflow: hidden;
 	color: white;
 	background-color: rgba(50, 139, 55, 0.5);
 	transition: width 0.3s ease-in-out, background-color 0.2s;
@@ -176,6 +177,7 @@ section header h1{
 	}
 	
 	&.inactive{
+		width: 75px;
 		background-color: rgba(191, 191, 191, 0.5);
 	}
 
