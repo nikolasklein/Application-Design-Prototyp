@@ -69,20 +69,6 @@ p	{
 	margin-bottom: 0.7rem;
 }
 
-
-
-header{
-	font-size: 180%;
-	color: #404040;
-	text-align: center;
-	line-height: 1.4em;
-	font-weight: 300 !important;
-	padding-bottom: 2em;
-	padding-top: 2em;
-	background-color: #f4f4f4;
-}
-
-
 h1{
 	font-weight: 300;
 	line-height: 1.3em;
@@ -91,3 +77,52 @@ h1{
 h3{
 	font-weight: 500;
 }
+
+
+header{
+	line-height: 1.4em;
+	font-weight: 300 !important;
+	padding-bottom: 2em;
+	padding-top: 2em;
+	background-color: #f4f4f4;
+}
+
+.center{
+	@include center(800px)
+}
+
+.logo{
+	float: left;
+}
+
+.nameSettings{
+	float: right;
+}
+
+article{
+	margin: 4em;
+	@include center(800px);
+	box-sizing: border-box;
+}
+
+.course{
+	background-color: rgba(192, 192, 192, 1);
+	border-radius: 9999rem;
+	width: 200px;
+	height: 200px;
+	margin-bottom: 0.8em;
+}
+
+.courseWrapper{
+	@include col(1/4);
+	text-align: center;
+	float: left;
+}
+
+
+
+
+
+
+
+
