@@ -168,6 +168,7 @@ section header h1{
 	top: 0px;
 	height: 100%;
 	color: white;
+	overflow: hidden;
 	background-color: rgba(50, 139, 55, 0.5);
 	transition: width 0.3s ease-in-out, background-color 0.2s;
 	
@@ -179,7 +180,22 @@ section header h1{
 		background-color: rgba(191, 191, 191, 0.5);
 	}
 
+	&.rightMenu{
+		left: auto;
+		float: right;
+		font-size: 70%;
+		right: 0px;
+		font-weight: 300;
+		width: 0px;
+		color: black;
+		background-color: rgba(255, 214, 48, 0.63);
+		
+		&:hover{
+			background-color: rgba(255, 214, 48, 0.9)
+		}
+	}
 }
+
 
 	
 .number{
