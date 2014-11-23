@@ -115,6 +115,7 @@ section header{
 section header h1{
 	font-weight: bold;
 	line-height: 2em;
+	padding-top: 0.5em;
 }
 
 
@@ -127,6 +128,7 @@ section header h1{
 	& h2{
 		transition: color 0.3s;
 		color: #acacac;
+		font-weight: 500;
 	}
 	
 	&:hover{
@@ -139,7 +141,7 @@ section header h1{
 			color: #f44600;			
 		}
 		.numberwrapper{
-			width: 50px;
+			width: 75px;
 		}
 	}
 	
@@ -158,10 +160,10 @@ section header h1{
 }
 
 .numberwrapper{
-	float: right;
-	width: 0px;
+	float: left;
+	width: 75px;
 	position: absolute;
-	right: 0px;
+	left: 0px;
 	top: 0px;
 	height: 100%;
 	color: white;
@@ -171,8 +173,14 @@ section header h1{
 	&:hover{
 		background-color: rgba(50, 139, 55, 0.9);
 	}
+	
+	&.inactive{
+		background-color: rgba(191, 191, 191, 0.5);
+	}
+
 }
 
+	
 .number{
 	line-height: 75px;
 	@include center(both);
