@@ -69,17 +69,14 @@ p	{
 	margin-bottom: 0.7rem;
 }
 
-h1{
-	font-weight: 300;
-	line-height: 1.3em;
-}
+
 
 h3{
 	font-weight: 500;
 }
 
 
-header{
+nav{
 	line-height: 1.4em;
 	font-weight: 300 !important;
 	padding-bottom: 2em;
@@ -99,27 +96,87 @@ header{
 	float: right;
 }
 
-article{
+section{
 	margin: 4em;
+}
+
+article{
 	@include center(800px);
 	box-sizing: border-box;
 }
 
-.course{
-	background-color: rgba(192, 192, 192, 1);
-	border-radius: 9999rem;
-	width: 200px;
-	height: 200px;
-	margin-bottom: 0.8em;
+section header{
+	background-color: transparent;
+	width: 100%;
+	border-bottom: 1px solid #c6c6c6;
+	margin-bottom: 2em;
 }
+
+section header h1{
+	font-weight: bold;
+	line-height: 2em;
+}
+
 
 .courseWrapper{
-	@include col(1/4);
+	@include col($ratios: 1, $cycle: 1);
 	text-align: center;
 	float: left;
+	margin-bottom: 2em;
+	
+	& h2{
+		transition: color 0.3s;
+		color: #acacac;
+	}
+	
+	&:hover{
+		cursor: pointer;
+		
+		h2{
+			color: #474747;
+		}
+		.course{
+			color: #f44600;			
+		}
+		.numberwrapper{
+			width: 50px;
+		}
+	}
+	
 }
 
+.course{
+	line-height: 1.5em;
+	font-weight: 100;
+	font-size: 150%;
+	color: #a6a6a6;
+	padding: 1em 0px;
+	background-color: rgba(244, 244, 244, 1);
+	margin-bottom: 0.2em;
+	transition: color 0.3s;
+	position: relative;
+}
 
+.numberwrapper{
+	float: right;
+	width: 0px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 100%;
+	color: white;
+	background-color: rgba(50, 139, 55, 0.5);
+	transition: width 0.3s ease-in-out, background-color 0.2s;
+	
+	&:hover{
+		background-color: rgba(50, 139, 55, 0.9);
+	}
+}
+
+.number{
+	line-height: 75px;
+	@include center(both);
+}
 
 
 
