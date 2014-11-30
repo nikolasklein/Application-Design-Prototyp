@@ -132,19 +132,6 @@ section header h1{
 		font-weight: 500;
 	}
 	
-	&:hover{
-		cursor: pointer;
-		
-		h2{
-			color: #474747;
-		}
-		.course{
-			color: #f44600;			
-		}
-		.numberwrapper{
-			width: 75px;
-		}
-	}
 	
 }
 
@@ -155,9 +142,23 @@ section header h1{
 	color: #a6a6a6;
 	padding: 1em 0px;
 	background-color: rgba(244, 244, 244, 1);
-	margin-bottom: 0.2em;
 	transition: color 0.3s;
 	position: relative;
+	
+	&:hover{
+		cursor: pointer;
+		
+		h2{
+			color: #474747;
+		}
+		.course{
+			color: #f44600;			
+		}
+		.rightMenu{
+			width: 100px;
+		}
+	}
+	
 }
 
 .numberwrapper{
@@ -175,10 +176,6 @@ section header h1{
 	&:hover{
 		background-color: rgba(50, 139, 55, 0.9);
 	}
-	
-	&.inactive{
-		background-color: rgba(191, 191, 191, 0.5);
-	}
 
 	&.rightMenu{
 		left: auto;
@@ -194,8 +191,9 @@ section header h1{
 			background-color: rgba(255, 214, 48, 0.9)
 		}
 	}
+	
+	
 }
-
 
 	
 .number{
@@ -204,7 +202,56 @@ section header h1{
 }
 
 
+ul{
+    display: none;
+    list-style: none;
+}
+
+li{
+    margin: 0;
+    padding: 1em;
+    padding-left: 90px;
+    text-align: left;
+    border-bottom: 1px solid #e8e8e8;
+    position: relative;
+    
+    transition: background-color 0.3s;
+    
+    &:hover{
+        background-color: #fbfbfb;
+        cursor: pointer;
+        
+        .download{
+            background-color: rgba(50, 139, 55, 0.8);
+        }
+        
+    }
+    
+}
+
+li .category{
+    float: left;
+    opacity: 0.4;
+    margin-left: 0.2em; 
+    margin-right: 0.3em;
+   
+}
+
+.download{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+	background-color: rgba(50, 139, 55, 0.5);
+    float: left;
+    width: 75px;
+    height: 55px;
+    
+    transition: background-color 0.3s;
+    
+}
 
 
-
+.inactive{
+	background-color: rgba(191, 191, 191, 0.5);
+}
 

@@ -1,3 +1,56 @@
+$(document).ready(function(){
+
+    $(".numberwrapper").click(function(){
+        event.stopPropagation();
+    });
+   
+    $(".discard").click(function(){
+        var thisOne = $(this).parent();
+        var child = thisOne.children(".downloadAll");
+        child.addClass("inactive");
+        $(".download").addClass("inactive");
+        child.html("<div class='number'>0</div>");
+    });
+   
+    
+    $(".course").click(function(){
+		var thisOne = $(this).parent();
+		
+		var x=thisOne.offset().top;
+		var w=$(document).scrollTop();
+		var thisActive = thisOne.hasClass("active");
+
+
+		thisOne.toggleClass("active");		
+
+		thisOne.children(".readmore").slideToggle(300, "easeInOutCubic", function(){		
+			if(!thisActive){
+				var z=thisOne.outerHeight();
+				var y=$(window).height();
+				
+				if(y<x-w+z){
+					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
+				}else if(y-((x-w)+z) < 50){
+					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
+				}else if(w>x){
+					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
+				};
+			}
+		});
+
+		onceclicked = false;
+
+		var checkIfOpen = $(".course").get();
+		$.each(checkIfOpen, function(i, item){
+			if($(item).hasClass("active")){
+				onceclicked = true;
+			}
+		});
+	});
+
+
+});
+
 /* ################## alter code vom tutorienprogramm
 
 window.addEventListener('load', function() {
