@@ -11,6 +11,24 @@ $(document).ready(function(){
         $(".download").addClass("inactive");
         child.html("<div class='number'>0</div>");
     });
+
+    $(".readmore li").click(function(){
+        var thisOne = $(this).children(".download");
+        var wholenumber = $(this).parent().parent().children(".course").children(".downloadAll").children(".number");
+        switch (wholenumber.html()){
+            case "3":
+                wholenumber.html("2");
+                break;
+            case "2":
+                wholenumber.html("1");
+                break;
+            case "1":
+                wholenumber.html("0");
+                wholenumber.parent().addClass("inactive");
+                break;
+        }
+        thisOne.addClass("inactive");
+    }); 
    
     
     $(".course").click(function(){
