@@ -127,9 +127,33 @@ section header h1{
 	margin-bottom: 2em;
 	
 	& h2{
+/*
+    	text-align: left;
+    	padding-left: 90px;
+*/
+    	font-size: 90%;
 		transition: color 0.3s;
 		color: #acacac;
-		font-weight: 500;
+		font-weight: 400;
+		
+		
+		&:after{
+    		content: " ▾";
+    		opacity: 0;
+    		font-weight: 100;
+    		transition: all 0.3s;
+		}
+		
+		&:hover:after{
+    		opacity: 0.5;
+		}
+		
+	}
+	
+	
+	&.active h2:after{
+    	content: " ▾";
+    	opacity: 0;
 	}
 	
 	
@@ -154,12 +178,22 @@ section header h1{
 		.course{
 			color: #f44600;			
 		}
-		.rightMenu{
-			width: 100px;
-		}
+
+        .numberwrapper{
+    	    width: 120px;
+        }
 	}
 	
 }
+
+.course.noFiles:hover{
+
+    .rightMenu{
+	    width: 0px !important;
+    }
+
+}
+
 
 .numberwrapper{
 	float: left;
@@ -171,7 +205,7 @@ section header h1{
 	color: white;
 	overflow: hidden;
 	background-color: rgba(50, 139, 55, 0.5);
-	transition: width 0.3s ease-in-out, background-color 0.2s;
+	transition: width 0.2s ease-in-out, background-color 0.2s;
 	
 	&:hover{
 		background-color: rgba(50, 139, 55, 0.9);
@@ -198,7 +232,13 @@ section header h1{
 	
 .number{
 	line-height: 75px;
+	white-space: nowrap;
 	@include center(both);
+}
+
+.readmore .number{
+    line-height: 55px;
+    text-align: center;
 }
 
 
@@ -229,6 +269,10 @@ li{
         	background-color: rgba(191, 191, 191, 0.5);            
         }
         
+        .numberwrapper{
+            width: 120px;
+        }
+        
     }
     
 }
@@ -256,6 +300,11 @@ li .category{
 
 
 .inactive{
-	background-color: rgba(191, 191, 191, 0.5);
+    width: 75px !important;
+	background-color: rgba(191, 191, 191, 0.5) !important;
 }
 
+
+.discardRight.inactive{
+    width: 0px !important;
+}

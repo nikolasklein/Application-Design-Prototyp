@@ -4,18 +4,38 @@ $(document).ready(function(){
         event.stopPropagation();
     });
    
-    $(".discard").click(function(){
+    $(".discard, .numberwrapper").click(function(){
         var thisOne = $(this).parent();
         var child = thisOne.children(".downloadAll");
         child.addClass("inactive");
-        $(".download").addClass("inactive");
+        thisOne.parent().children(".readmore").children("li").children(".download").addClass("inactive");
+        thisOne.parent().children(".readmore").children("li").children(".discardRight").addClass("inactive");        
         child.html("<div class='number'>0</div>");
+        thisOne.addClass("noFiles");
     });
-
-    $(".readmore li").click(function(){
-        var thisOne = $(this).children(".download");
-        var wholenumber = $(this).parent().parent().children(".course").children(".downloadAll").children(".number");
+    
+    $(".discardRight").click(function(){
+        var thisOne = $(this).parent().children(".download");
+        var wholenumber = $(this).parent().parent().parent().children(".course").children(".downloadAll").children(".number");
         switch (wholenumber.html()){
+            case "9":
+                wholenumber.html("8");
+                break;
+            case "8":
+                wholenumber.html("7");
+                break;
+            case "7":
+                wholenumber.html("6");
+                break;
+            case "6":
+                wholenumber.html("5");
+                break;
+            case "5":
+                wholenumber.html("4");
+                break;
+            case "4":
+                wholenumber.html("3");
+                break;
             case "3":
                 wholenumber.html("2");
                 break;
@@ -25,6 +45,46 @@ $(document).ready(function(){
             case "1":
                 wholenumber.html("0");
                 wholenumber.parent().addClass("inactive");
+                wholenumber.parent().parent().addClass("noFiles");
+                break;
+        }
+        thisOne.addClass("inactive");
+        $(this).addClass("inactive");
+    });
+
+    $(".readmore li").click(function(){
+        var thisOne = $(this).children(".download");
+        $(this).children(".discardRight").addClass("inactive");        
+        var wholenumber = $(this).parent().parent().children(".course").children(".downloadAll").children(".number");
+        switch (wholenumber.html()){
+            case "9":
+                wholenumber.html("8");
+                break;
+            case "8":
+                wholenumber.html("7");
+                break;
+            case "7":
+                wholenumber.html("6");
+                break;
+            case "6":
+                wholenumber.html("5");
+                break;
+            case "5":
+                wholenumber.html("4");
+                break;
+            case "4":
+                wholenumber.html("3");
+                break;
+            case "3":
+                wholenumber.html("2");
+                break;
+            case "2":
+                wholenumber.html("1");
+                break;
+            case "1":
+                wholenumber.html("0");
+                wholenumber.parent().addClass("inactive");
+                wholenumber.parent().parent().addClass("noFiles");
                 break;
         }
         thisOne.addClass("inactive");
