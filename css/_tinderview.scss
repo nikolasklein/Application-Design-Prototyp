@@ -1,0 +1,223 @@
+.tinderview{
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 2em;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.tinderview .controls{
+    position: fixed;
+    height: 100%;
+    top: 0px;
+    width: 6em;
+    opacity: 0;
+    transition: all 0.25s;
+    cursor: pointer;
+    
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+    
+    &.left{
+        background-position: 40% center;
+        background-image: url(../img/chevron-left.png);
+        left: 0px;
+        
+        transform: translate(-100px, 0px);
+    }
+    
+    &.right{
+        background-image: url(../img/chevron-right.png);
+        right: 0px;
+        background-position: 60% center;
+        transform: translate(100px, 0px);
+    }
+        
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.25);
+        opacity: 1;
+    }
+    
+}
+
+.tinderview.show .controls{
+    opacity: 0.3;
+    transform: translate(0px, 0px);
+}
+
+.controls.inactive{
+    opacity: 0 !important;
+    cursor: default !important;
+    background-color: transparent !important;
+}
+
+
+.filewrapper{
+    @include center(900px);
+    position: relative;
+    height: 100%;
+}
+
+.tinderview .main{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.975);
+    height: 100%;
+    cursor: default;
+    position: absolute;
+    
+    transform: translate( -900px, 000px);
+    opacity: 0;
+    transition: all 0.25s;
+
+    &.keep{
+        transition: all 0.25s 0.15s;
+        transform: translate(0px, 600px) !important;
+        opacity: 0 !important;
+    }
+
+    &.away{
+        transition: all 0.25s 0.15s;
+        transform: translate(0px, -600px) !important;
+        opacity: 0 !important;
+    }
+
+}
+
+.main.show{
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.tinderview .main .contentwrapper{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.tinderview .main .contentwrapper .content{
+    @include center(600px);
+    width: 100%;
+    height: auto;
+    color: grey;
+    padding: 2em;    
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+
+
+
+
+
+.tinderview .main .information{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+	font-size: 150%;    
+    width: 100%;
+    padding: 1.3em 2em;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px -1px 1px rgba(107, 107, 107, 0.34);
+    
+    transition: all 0.25s;
+    
+    background-image: url(../img/chevron-up.png);
+    background-size: 15px auto;
+    background-repeat: no-repeat;
+    background-position: center 5%;
+    
+    &:hover{
+        background-position: center 3%;
+        cursor: pointer;
+    }
+    
+}
+
+.tinderview .main .information h2{
+    font-weight: 100;
+    
+    & .category, & .subtitle{
+        opacity: 0.75;
+        font-size: 65%;
+    }
+
+    & .category{
+        display: inline-block;        
+        text-transform: uppercase;
+        float: right;
+    }
+    
+    & .subtitle{
+        margin-top: 0.5em;
+    }
+}
+
+
+
+
+.tinderview .main .contentwrapper .decision{
+    height: 100%;
+    width: 40%;
+    position: absolute;
+    top: 0px;
+    
+    transition: all 0.25s;
+    opacity: 0;
+
+    background-position: center 50%;
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+
+    &.sayNo{
+        left: 0px;
+        background-image: url(../img/close.png);
+    }
+
+    &.sayYes{
+        right: 0px;
+        background-image: url(../img/checkmark.png);
+    }
+    
+    
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.05);
+        opacity: 0.75;
+        cursor: pointer;
+    }
+    
+    &.marked{
+        height: 20px !important;
+        background-image: none;
+        opacity: 1 !important;
+    }
+    
+    &.yes{
+        background-color: #7cdc37;
+        bottom: 50px;
+        top: auto;
+    }
+    
+    &.no{
+        background-color: #d74c15;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

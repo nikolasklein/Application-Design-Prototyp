@@ -6,8 +6,6 @@
 *		VARIABLES		*
 ************************/
 
-@import url("http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500");
-@import url("http://fonts.googleapis.com/css?family=Fira+Mono");
 
 
 /*	Colors
@@ -15,7 +13,7 @@
 $white: rgba(255,255,255,1);
 $black: rgba(30,30,30,1);
 $grey: rgba(150,150,150,1);
-$green: #00bc8c;
+$green: #368A86;
 
 /************************
 *		TYPOGRAPHY		*
@@ -28,7 +26,7 @@ html, body, div, a, span{
 }
 
 body 	{
-	font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+	font-family: "DIN Round Pro", Helvetica, Arial, sans-serif;
 	color: $black;
 	background-color: $white;
 	font-weight: 400;
@@ -40,8 +38,45 @@ body 	{
 	font-variant-ligatures: inherit;
 	overflow-x: hidden;
 	word-wrap: normal;
+
 	
 	transition: font-size 0s !important;
+}
+
+.mainContent{
+    height: 100vh;
+    overflow-y: scroll;
+    width: 100vw;
+    overflow-x: hidden;
+
+    background-image: url(../bg.png);
+    background-repeat: no-repeat;
+    background-position: center 0%;
+    background-size: 100% 200%;
+}
+
+.hide{
+    opacity: 1;
+    transform: translate(0px, 0px);
+    transition: all 0.2s;
+}
+
+.fromTop{
+    transform: translate(0px, -100px);
+    opacity: 0;
+    z-index: 0 !important;
+}
+
+.fromRight{
+    transform: translate(500px, 0px);
+    opacity: 0;
+    z-index: 0 !important;
+}
+
+.fromLeft{
+    transform: translate(-500px, 0px);
+    opacity: 0;
+    z-index: 0 !important;
 }
 
 .mononumber{
@@ -76,16 +111,32 @@ h3{
 }
 
 
+
+
 nav{
 	line-height: 1.4em;
 	font-weight: 300 !important;
-	padding-bottom: 2em;
-	padding-top: 2em;
-	background-color: #f4f4f4;
+	padding-bottom: 8em;
+	padding-top: 3em;
+	background-color: #f3f9f8;
+	color: $green;
+	transition: all 0.25s;
+}
+
+nav.courseView{
+	padding-bottom: 8em;
+}
+
+nav div{
+    position: relative;
+}
+
+nav div h1{
+    position: absolute;
 }
 
 .center{
-	@include center(800px)
+	@include center(600px)
 }
 
 .logo{
@@ -97,6 +148,7 @@ nav{
 }
 
 section{
+	position: relative;
 	margin: 4em;
 	margin-top: 2em;
 }
@@ -106,205 +158,323 @@ article{
 	box-sizing: border-box;
 }
 
+article.contentsWrapper{
+    z-index: 100;
+	position: absolute;
+	width: 100%;
+}
+
 section header{
 	background-color: transparent;
 	width: 100%;
 	border-bottom: 1px solid #c6c6c6;
 	margin-bottom: 2em;
-}
-
-section header h1{
-	font-weight: bold;
-	line-height: 2em;
-	padding-top: 0.5em;
+	height: 200px;
 }
 
 
-.courseWrapper{
-	@include col($ratios: 1, $cycle: 1);
-	text-align: center;
+h1{
+    font-size: 150%;
+    font-weight: 200;
+    line-height: 2.7em;
+}
+
+h1 sub{
+	display: block;
+	margin-top: -1em;
+	font-size: 0.75em;
+}
+
+h1 sub ul, h1 sub li{
 	float: left;
-	margin-bottom: 2em;
-	
-	& h2{
-/*
-    	text-align: left;
-    	padding-left: 90px;
-*/
-    	font-size: 90%;
-		transition: color 0.3s;
-		color: #acacac;
-		font-weight: 400;
-		
-		
-		&:after{
-    		content: " ▾";
-    		opacity: 0;
-    		font-weight: 100;
-    		transition: all 0.3s;
-		}
-		
-		&:hover:after{
-    		opacity: 0.5;
-		}
-		
-	}
-	
-	
-	&.active h2:after{
-    	content: " ▾";
-    	opacity: 0;
-	}
-	
-	
+	display: inline-block;
 }
 
-.course{
-	line-height: 1.5em;
-	font-weight: 100;
-	font-size: 150%;
-	color: #a6a6a6;
-	padding: 1em 0px;
-	background-color: rgba(244, 244, 244, 1);
-	transition: color 0.3s;
-	position: relative;
-	
-	&:hover{
-		cursor: pointer;
-		
-		h2{
-			color: #474747;
-		}
-		.course{
-			color: #f44600;			
-		}
-
-        .numberwrapper{
-    	    width: 120px;
-        }
-	}
-	
+h1 sub li{
+	margin-right: 2em;
+	opacity: 0.3;
+	transition: all 0.25s;
+	cursor: pointer;
 }
 
-.course.noFiles:hover{
-
-    .rightMenu{
-	    width: 0px !important;
-    }
-
+h1 sub li:hover, h1 sub li.selected{
+    opacity: 1;
 }
 
+h1 sub li:last-child{
+	margin-right: 0px;
+}
 
-.numberwrapper{
-	float: left;
-	width: 75px;
+#inventiondesignTitle:before{
+	width: 100px;
+	height: 100px;
+	content: " ";
 	position: absolute;
-	left: 0px;
-	top: 0px;
-	height: 100%;
-	color: white;
-	overflow: hidden;
-	background-color: rgba(50, 139, 55, 0.5);
-	transition: width 0.2s ease-in-out, background-color 0.2s;
-	
-	&:hover{
-		background-color: rgba(50, 139, 55, 0.9);
-	}
-
-	&.rightMenu{
-		left: auto;
-		float: right;
-		font-size: 70%;
-		right: 0px;
-		font-weight: 300;
-		width: 0px;
-		color: black;
-		background-color: rgba(255, 214, 48, 0.63);
-		
-		&:hover{
-			background-color: rgba(255, 214, 48, 0.9)
-		}
-	}
-	
-	
+	left: -205px;
+	background-image: url(../img/arrow-left-c.png);
+	background-size: 20px auto;
+	background-position: left 24%;
+	background-repeat: no-repeat;
+	transition: all 0.25s;
+	opacity: 0.3;
 }
 
-	
-.number{
-	line-height: 75px;
-	white-space: nowrap;
-	@include center(both);
-}
-
-.readmore .number{
-    line-height: 55px;
-    text-align: center;
+#inventiondesignTitle:hover:before{
+	opacity: 1;
+	cursor: pointer;
 }
 
 
-ul{
-    display: none;
-    list-style: none;
+#inventionContents{
+	margin-top: 3em;
+	width: 1000px;
+	max-width: 20000px;
+	margin-left: -200px;
 }
 
-li{
-    margin: 0;
-    padding: 1em;
-    padding-left: 90px;
-    text-align: left;
-    border-bottom: 1px solid #e8e8e8;
-    position: relative;
+#inventionContents .file{
+	position: relative;
+	width: 45%;
+	box-sizing: border-box;
+	margin-bottom: 5em;
+	height: 220px;
+	background-color: white;
+	float: left;
+    box-shadow: 0px 0px 1px rgba(107, 107, 107, 0.34);
+    transition: all 0.23s;
     
-    transition: background-color 0.3s;
+    background-size: 80% auto;
+    background-position: center 10%;
+    background-repeat: no-repeat;
     
     &:hover{
-        background-color: #fbfbfb;
-        cursor: pointer;
-        
-        .download{
-            background-color: rgba(50, 139, 55, 0.8);
-        }
-        
-        .download.inactive{
-        	background-color: rgba(191, 191, 191, 0.5);            
-        }
-        
-        .numberwrapper{
-            width: 120px;
-        }
-        
+	    transform: scale(1.01, 1.01);
+	    cursor: pointer;
     }
-    
 }
 
-li .category{
-    float: left;
-    opacity: 0.4;
-    margin-left: 0.2em; 
-    margin-right: 0.3em;
-   
+.file .information{
+	position: absolute;
+	bottom: 0px;
+	padding: 1.3em;
+	width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px -1px 1px rgba(107, 107, 107, 0.34);
 }
 
-.download{
+.file .information h2{
+	font-size: 18px;
+	font-weight: 200;
+}
+
+#file1{
+    background-image: url(../img/files/01.png);
+}
+
+#file2{
+    background-image: url(../img/files/02.png);
+}
+
+#file3{
+    background-image: url(../img/files/03.png);
+}
+
+#file4{
+    background-image: url(../img/files/04.png);
+}
+
+#file5{
+    background-image: url(../img/files/05.png);
+}
+
+#file6{
+    background-image: url(../img/files/06.png);
+}
+
+#file7{
+    background-image: url(../img/files/07.png);
+}
+
+#file8{
+    background-image: url(../img/files/08.png);
+}
+
+#file9{
+    background-image: url(../img/files/09.png);
+}
+
+.file .information h2 .subtitle{
+	font-size: 15px;
+	opacity: 0.7;
+}
+
+#inventionContents .file:nth-child(odd){
+	margin-right: 5%;
+}
+
+#inventionContents .file:nth-child(even){
+	margin-left: 5%;	
+}
+
+#submenu{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    height: 0px;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: all 0.25s;
+}
+
+#submenu.shown{
+    height: 200px;
+}
+
+#submenu.mailList{
+    height: 280px;
+    overflow-y: scroll;
+}
+
+.subContentWrapper{
+    position: relative;
+    color: white;
+    z-index: 10000;
+}
+
+.subContent{
     position: absolute;
-    top: 0px;
-    left: 0px;
-	background-color: rgba(50, 139, 55, 0.5);
+    padding: 3em 0px;
+    width: 1000px;
+    margin-left: -200px;
+}
+
+.subContent .center{
+    max-width: 800px;
+}
+.subContent ul, .subContent li{
+	display: inline;
+	position: relative;
+}
+
+.subContent li{
+    margin-right: 5em;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-size: 15px;
+}
+
+.subContent li:hover, .subContent li.subSelected{
+    opacity: 1;
+}
+
+.subContent li:last-child{
+    margin-right: 0px;
+}
+
+.subContent li:after{
+    content: " ";
+    display: inline-block;
+    margin-left: 20px;
+    height: 10px;
+    width: 10px;
+    background-image: url(../img/checkmark_white.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+    opacity: 0;
+    transition: all 0.25s;
+}
+
+.subContent li:hover:after{
+    opacity: 0.3;
+}
+
+.subContent li.subSelected:after{
+    opacity: 1;
+    -webkit-animation: bounce 0.25s;
+}
+
+#folder:after{
+    height: 15px;
+    width: 15px;
+    margin-left: 15px;
+    opacity: 0.3;
+    margin-bottom: -3px;
+    background-image: url(../img/folder.png);
+}
+
+#folder:hover:after{
+    opacity: 1;
+}
+
+.subContentSpace{
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    opacity: 0.15;
+    margin: 2em 0px;
+}
+
+
+.nameColumn, .mailColumn{
+    display: inline-block;
     float: left;
-    width: 75px;
-    height: 55px;
-    
-    transition: background-color 0.3s;
-    
 }
 
-
-.inactive{
-    width: 75px !important;
-	background-color: rgba(191, 191, 191, 0.5) !important;
+.nameColumn ul, .nameColumn li, .mailColumn ul, .mailColumn li{
+    display: block;
 }
 
-
-.discardRight.inactive{
-    width: 0px !important;
+.nameColumn li, .mailColumn li{
+    margin-top: 0.5em;
 }
+
+.nameColumn li:after, .mailColumn li:after{
+    background-image: url(../img/close_white.png);
+}
+
+.nameColumn{
+    width: 40%;
+}
+
+.mailColumn{
+    width: 60%
+}
+
+.addNewOne{
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    line-height: 3em;
+    padding-left: 1em;
+    height: 3em;
+    width: 800px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none !important;
+    outline: none !important;
+	font-family: "DIN Round Pro", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	color: white;
+}
+
+.addNewOne::-webkit-input-placeholder {
+   color: white;
+   opacity: 0.7;
+}
+
+.addNewOne:focus{
+    background-image: url(../img/plus.png);
+    background-position: 98% center;
+    background-size: auto 30%;
+    background-repeat: no-repeat;
+}
+
+@-webkit-keyframes bounce {
+    0% {-webkit-transform: translate(0,0)}
+    50% {-webkit-transform: translate(0,-15px)}
+    100% {-webkit-transform: translate(0,0)}
+}
+
+@import "_mainview.scss";
+@import "_tinderview.scss";
+

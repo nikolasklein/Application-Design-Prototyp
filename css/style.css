@@ -1,1 +1,914 @@
-@import url("http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500");@import url("http://fonts.googleapis.com/css?family=Fira+Mono");html,body,div,a,span{-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-tap-highlight-color:transparent;outline:none !important}body{font-family:"Fira Sans",Helvetica,Arial,sans-serif;color:#1e1e1e;background-color:white;font-weight:400;font-size:15px;line-height:1.6em;margin:0px;text-align:left;text-rendering:optimizeLegibility;font-variant-ligatures:inherit;overflow-x:hidden;word-wrap:normal;transition:font-size 0s !important}.mononumber{font-family:"Fira Mono"}a{color:#00bc8c;text-decoration:underline;transition:all 0.3s}a:hover{color:#1e1e1e;text-decoration:underline;cursor:pointer}b,strong{font-weight:500}p{margin-bottom:0.7rem}h3{font-weight:500}nav{line-height:1.4em;font-weight:300 !important;padding-bottom:2em;padding-top:2em;background-color:#f4f4f4}.center{*zoom:1;width:auto;max-width:800px;float:none;display:block;margin-right:auto;margin-left:auto;padding-left:0;padding-right:0}.center:before,.center:after{content:'';display:table}.center:after{clear:both}.logo{float:left}.nameSettings{float:right}section{margin:4em;margin-top:2em}article{*zoom:1;width:auto;max-width:800px;float:none;display:block;margin-right:auto;margin-left:auto;padding-left:0;padding-right:0;box-sizing:border-box}article:before,article:after{content:'';display:table}article:after{clear:both}section header{background-color:transparent;width:100%;border-bottom:1px solid #c6c6c6;margin-bottom:2em}section header h1{font-weight:bold;line-height:2em;padding-top:0.5em}.courseWrapper{*zoom:1;float:left;clear:none;text-align:inherit;width:100%;margin-left:0%;margin-right:3%;text-align:center;float:left;margin-bottom:2em}.courseWrapper:before,.courseWrapper:after{content:'';display:table}.courseWrapper:after{clear:both}.courseWrapper:nth-child(1n){margin-right:0%;float:right}.courseWrapper:nth-child(1n+1){clear:both}.courseWrapper h2{font-size:90%;transition:color 0.3s;color:#acacac;font-weight:400}.courseWrapper h2:after{content:" ▾";opacity:0;font-weight:100;transition:all 0.3s}.courseWrapper h2:hover:after{opacity:0.5}.courseWrapper.active h2:after{content:" ▾";opacity:0}.course{line-height:1.5em;font-weight:100;font-size:150%;color:#a6a6a6;padding:1em 0px;background-color:#f4f4f4;transition:color 0.3s;position:relative}.course:hover{cursor:pointer}.course:hover h2{color:#474747}.course:hover .course{color:#f44600}.course:hover .numberwrapper{width:120px}.course.noFiles:hover .rightMenu{width:0px !important}.numberwrapper{float:left;width:75px;position:absolute;left:0px;top:0px;height:100%;color:white;overflow:hidden;background-color:rgba(50,139,55,0.5);transition:width 0.2s ease-in-out,background-color 0.2s}.numberwrapper:hover{background-color:rgba(50,139,55,0.9)}.numberwrapper.rightMenu{left:auto;float:right;font-size:70%;right:0px;font-weight:300;width:0px;color:black;background-color:rgba(255,214,48,0.63)}.numberwrapper.rightMenu:hover{background-color:rgba(255,214,48,0.9)}.number{line-height:75px;white-space:nowrap;*zoom:1;width:auto;max-width:both;float:none;display:block;margin-right:auto;margin-left:auto;padding-left:0;padding-right:0}.number:before,.number:after{content:'';display:table}.number:after{clear:both}.readmore .number{line-height:55px;text-align:center}ul{display:none;list-style:none}li{margin:0;padding:1em;padding-left:90px;text-align:left;border-bottom:1px solid #e8e8e8;position:relative;transition:background-color 0.3s}li:hover{background-color:#fbfbfb;cursor:pointer}li:hover .download{background-color:rgba(50,139,55,0.8)}li:hover .download.inactive{background-color:rgba(191,191,191,0.5)}li:hover .numberwrapper{width:120px}li .category{float:left;opacity:0.4;margin-left:0.2em;margin-right:0.3em}.download{position:absolute;top:0px;left:0px;background-color:rgba(50,139,55,0.5);float:left;width:75px;height:55px;transition:background-color 0.3s}.inactive{width:75px !important;background-color:rgba(191,191,191,0.5) !important}.discardRight.inactive{width:0px !important}
+/*  Syntax Quick Reference
+  --------------------------
+  column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter)
+  span($ratio: 1, $offset: 0)
+  shift($ratios: 0, $col_or_span: column, $gutter: $jeet-gutter)
+  unshift()
+  edit()
+  center($max_width: 1410px, $pad: 0)
+  stack($pad: 0, $align: false)
+  unstack()
+  align($direction: both)
+  cf()
+*/
+/**
+ * Grid settings.
+ * All values are defaults and can therefore be easily overidden.
+ */
+/**
+ * List functions courtesy of the wonderful folks at Team Sass.
+ * Check out their awesome grid: Singularity.
+ */
+/**
+ * Get  percentage from a given ratio.
+ * @param {number} [$ratio=1] - The column ratio of the element.
+ * @returns {number} - The percentage value.
+ */
+/**
+ * Work out the column widths based on the ratio and gutter sizes.
+ * @param {number} [$ratios=1] - The column ratio of the element.
+ * @param {number} [$gutter=$jeet-gutter] - The gutter for the column.
+ * @returns {list} $width $gutter - A list containing the with and gutter for the element.
+ */
+/**
+ * Get the set layout direction for the project.
+ * @returns {string} $direction - The layout direction.
+ */
+/**
+ * Replace a specified list value with a new value (uses built in set-nth() if available)
+ * @param {list} $list - The list of values you want to alter.
+ * @param {number} $index - The index of the list item you want to replace.
+ * @param {*} $value - The value you want to replace $index with.
+ * @returns {list} $list - The list with the value replaced or removed.
+ * @warn if an invalid index is supplied.
+ */
+/**
+ * Reverse a list (progressively enhanced for Sass 3.3)
+ * @param {list} $list - The list of values you want to reverse.
+ * @returns {list} $result - The reversed list.
+ */
+/**
+ * Get the opposite direction to a given value.
+ * @param {string} $dir - The direction you want the opposite of.
+ * @returns {string} - The opposite direction to $dir.
+ * @warn if an incorrect string is provided.
+ */
+/**
+ * Style an element as a column with a gutter.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
+ * @param {number} [$cycle=0] - Easily create an nth column grid where $cycle equals the number of columns.
+ * @param {number} [$uncycle=0] - Undo a previous cycle value to allow for a new one.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * An alias for the column mixin.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+/**
+ * Get the width of a column and nothing else.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * Get the gutter size of a column and nothing else.
+ * @param {number} [ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * An alias for the column-width function.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+/**
+ * An alias for the column-gutter function.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+/**
+ * Style an element as a column without any gutters for a seamless row.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
+ * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
+ * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
+ */
+/**
+ * Reorder columns without altering the HTML.
+ * @param {number} [$ratios=0] - Specify how far along you want the element to move.
+ * @param {string} [$col-or-span=column] - Specify whether the element has a gutter or not.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+/**
+ * Reset an element that has had shift() applied to it.
+ */
+/**
+ * View the grid and its layers for easy debugging.
+ * @param {string} [$color=black] - The background tint applied.
+ * @param {boolean} [$important=false] - Whether to apply the style as !important.
+ */
+/**
+ *  Alias for edit().
+ */
+/**
+ * Horizontally center an element.
+ * @param {number} [$max-width=1410px] - The max width the element can be.
+ * @param {number} [$pad=0] - Specify the element's left and right padding.
+ */
+/**
+ * Uncenter an element.
+ */
+/**
+ * Stack an element so that nothing is either side of it.
+ * @param {number} [$pad=0] - Specify the element's left and right padding.
+ * @param {boolean/string} [$align=false] - Specify the text align for the element.
+ */
+/**
+ * Unstack an element.
+ */
+/**
+ * Center an element on either or both axes.
+ * @requires A parent container with relative positioning.
+ * @param {string} [$direction=both] - Specify which axes to center the element on.
+ */
+/**
+ * Apply a clearfix to an element.
+ */
+/* @include edit(); */
+/************************
+*		VARIABLES		*
+************************/
+/*	Colors
+************************/
+/************************
+*		TYPOGRAPHY		*
+************************/
+html, body, div, a, span {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
+}
+
+body {
+  font-family: "DIN Round Pro", Helvetica, Arial, sans-serif;
+  color: #1e1e1e;
+  background-color: white;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6em;
+  margin: 0px;
+  text-align: left;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: inherit;
+  overflow-x: hidden;
+  word-wrap: normal;
+  transition: font-size 0s !important;
+}
+
+.mainContent {
+  height: 100vh;
+  overflow-y: scroll;
+  width: 100vw;
+  overflow-x: hidden;
+  background-image: url(../bg.png);
+  background-repeat: no-repeat;
+  background-position: center 0%;
+  background-size: 100% 200%;
+}
+
+.hide {
+  opacity: 1;
+  transform: translate(0px, 0px);
+  transition: all 0.2s;
+}
+
+.fromTop {
+  transform: translate(0px, -100px);
+  opacity: 0;
+  z-index: 0 !important;
+}
+
+.fromRight {
+  transform: translate(500px, 0px);
+  opacity: 0;
+  z-index: 0 !important;
+}
+
+.fromLeft {
+  transform: translate(-500px, 0px);
+  opacity: 0;
+  z-index: 0 !important;
+}
+
+.mononumber {
+  font-family: "Fira Mono";
+}
+
+a {
+  color: #368A86;
+  text-decoration: underline;
+  transition: all 0.3s;
+}
+a:hover {
+  color: #1e1e1e;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+b, strong {
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 0.7rem;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+nav {
+  line-height: 1.4em;
+  font-weight: 300 !important;
+  padding-bottom: 8em;
+  padding-top: 3em;
+  background-color: #f3f9f8;
+  color: #368A86;
+  transition: all 0.25s;
+}
+
+nav.courseView {
+  padding-bottom: 8em;
+}
+
+nav div {
+  position: relative;
+}
+
+nav div h1 {
+  position: absolute;
+}
+
+.center {
+  *zoom: 1;
+  width: auto;
+  max-width: 600px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.center:before, .center:after {
+  content: '';
+  display: table;
+}
+.center:after {
+  clear: both;
+}
+
+.logo {
+  float: left;
+}
+
+.nameSettings {
+  float: right;
+}
+
+section {
+  position: relative;
+  margin: 4em;
+  margin-top: 2em;
+}
+
+article {
+  *zoom: 1;
+  width: auto;
+  max-width: 800px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+article:before, article:after {
+  content: '';
+  display: table;
+}
+article:after {
+  clear: both;
+}
+
+article.contentsWrapper {
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+}
+
+section header {
+  background-color: transparent;
+  width: 100%;
+  border-bottom: 1px solid #c6c6c6;
+  margin-bottom: 2em;
+  height: 200px;
+}
+
+h1 {
+  font-size: 150%;
+  font-weight: 200;
+  line-height: 2.7em;
+}
+
+h1 sub {
+  display: block;
+  margin-top: -1em;
+  font-size: 0.75em;
+}
+
+h1 sub ul, h1 sub li {
+  float: left;
+  display: inline-block;
+}
+
+h1 sub li {
+  margin-right: 2em;
+  opacity: 0.3;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+h1 sub li:hover, h1 sub li.selected {
+  opacity: 1;
+}
+
+h1 sub li:last-child {
+  margin-right: 0px;
+}
+
+#inventiondesignTitle:before {
+  width: 100px;
+  height: 100px;
+  content: " ";
+  position: absolute;
+  left: -205px;
+  background-image: url(../img/arrow-left-c.png);
+  background-size: 20px auto;
+  background-position: left 24%;
+  background-repeat: no-repeat;
+  transition: all 0.25s;
+  opacity: 0.3;
+}
+
+#inventiondesignTitle:hover:before {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#inventionContents {
+  margin-top: 3em;
+  width: 1000px;
+  max-width: 20000px;
+  margin-left: -200px;
+}
+
+#inventionContents .file {
+  position: relative;
+  width: 45%;
+  box-sizing: border-box;
+  margin-bottom: 5em;
+  height: 220px;
+  background-color: white;
+  float: left;
+  box-shadow: 0px 0px 1px rgba(107, 107, 107, 0.34);
+  transition: all 0.23s;
+  background-size: 80% auto;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+}
+#inventionContents .file:hover {
+  transform: scale(1.01, 1.01);
+  cursor: pointer;
+}
+
+.file .information {
+  position: absolute;
+  bottom: 0px;
+  padding: 1.3em;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px -1px 1px rgba(107, 107, 107, 0.34);
+}
+
+.file .information h2 {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+#file1 {
+  background-image: url(../img/files/01.png);
+}
+
+#file2 {
+  background-image: url(../img/files/02.png);
+}
+
+#file3 {
+  background-image: url(../img/files/03.png);
+}
+
+#file4 {
+  background-image: url(../img/files/04.png);
+}
+
+#file5 {
+  background-image: url(../img/files/05.png);
+}
+
+#file6 {
+  background-image: url(../img/files/06.png);
+}
+
+#file7 {
+  background-image: url(../img/files/07.png);
+}
+
+#file8 {
+  background-image: url(../img/files/08.png);
+}
+
+#file9 {
+  background-image: url(../img/files/09.png);
+}
+
+.file .information h2 .subtitle {
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+#inventionContents .file:nth-child(odd) {
+  margin-right: 5%;
+}
+
+#inventionContents .file:nth-child(even) {
+  margin-left: 5%;
+}
+
+#submenu {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: 0px;
+  background-color: rgba(0, 0, 0, 0.15);
+  transition: all 0.25s;
+}
+
+#submenu.shown {
+  height: 200px;
+}
+
+#submenu.mailList {
+  height: 280px;
+  overflow-y: scroll;
+}
+
+.subContentWrapper {
+  position: relative;
+  color: white;
+  z-index: 10000;
+}
+
+.subContent {
+  position: absolute;
+  padding: 3em 0px;
+  width: 1000px;
+  margin-left: -200px;
+}
+
+.subContent .center {
+  max-width: 800px;
+}
+
+.subContent ul, .subContent li {
+  display: inline;
+  position: relative;
+}
+
+.subContent li {
+  margin-right: 5em;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-size: 15px;
+}
+
+.subContent li:hover, .subContent li.subSelected {
+  opacity: 1;
+}
+
+.subContent li:last-child {
+  margin-right: 0px;
+}
+
+.subContent li:after {
+  content: " ";
+  display: inline-block;
+  margin-left: 20px;
+  height: 10px;
+  width: 10px;
+  background-image: url(../img/checkmark_white.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
+  opacity: 0;
+  transition: all 0.25s;
+}
+
+.subContent li:hover:after {
+  opacity: 0.3;
+}
+
+.subContent li.subSelected:after {
+  opacity: 1;
+  -webkit-animation: bounce 0.25s;
+}
+
+#folder:after {
+  height: 15px;
+  width: 15px;
+  margin-left: 15px;
+  opacity: 0.3;
+  margin-bottom: -3px;
+  background-image: url(../img/folder.png);
+}
+
+#folder:hover:after {
+  opacity: 1;
+}
+
+.subContentSpace {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  opacity: 0.15;
+  margin: 2em 0px;
+}
+
+.nameColumn, .mailColumn {
+  display: inline-block;
+  float: left;
+}
+
+.nameColumn ul, .nameColumn li, .mailColumn ul, .mailColumn li {
+  display: block;
+}
+
+.nameColumn li, .mailColumn li {
+  margin-top: 0.5em;
+}
+
+.nameColumn li:after, .mailColumn li:after {
+  background-image: url(../img/close_white.png);
+}
+
+.nameColumn {
+  width: 40%;
+}
+
+.mailColumn {
+  width: 60%;
+}
+
+.addNewOne {
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+  line-height: 3em;
+  padding-left: 1em;
+  height: 3em;
+  width: 800px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none !important;
+  outline: none !important;
+  font-family: "DIN Round Pro", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: white;
+}
+
+.addNewOne::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.addNewOne:focus {
+  background-image: url(../img/plus.png);
+  background-position: 98% center;
+  background-size: auto 30%;
+  background-repeat: no-repeat;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, -15px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+.courseWrapper {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  text-align: center;
+  float: left;
+}
+.courseWrapper:before, .courseWrapper:after {
+  content: '';
+  display: table;
+}
+.courseWrapper:after {
+  clear: both;
+}
+.courseWrapper:nth-child(1n) {
+  margin-right: 0%;
+  float: right;
+}
+.courseWrapper:nth-child(1n + 1) {
+  clear: both;
+}
+.courseWrapper h2 {
+  transition: color 0.3s;
+  line-height: 3em;
+  color: #fff;
+  font-weight: 100;
+  text-transform: uppercase;
+  padding: 0px;
+}
+
+.course {
+  font-weight: 100;
+  font-size: 150%;
+  text-align: left;
+  color: #a6a6a6;
+  padding: 2.75em 0px;
+  transition: all 0.25s;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0.4;
+}
+.course:hover {
+  cursor: pointer;
+  opacity: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.number {
+  font-size: 120%;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  transition: all 0.25s 0.1s;
+}
+.number:hover {
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.number.inline {
+  display: inline-block;
+  width: 62px;
+  text-align: center;
+  margin: 0px 0.2em;
+  border-color: #368A86;
+}
+.number.inline:hover {
+  background-color: #368A86;
+  color: white;
+}
+.number.right {
+  display: inline-block;
+  margin: 0px;
+  width: 69px;
+  text-align: center;
+  float: right;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.number.right:hover {
+  border-color: white;
+  background-color: white;
+  color: #368A86;
+}
+
+.course:hover .number.right {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.tinderview {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 2em;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.tinderview .controls {
+  position: fixed;
+  height: 100%;
+  top: 0px;
+  width: 6em;
+  opacity: 0;
+  transition: all 0.25s;
+  cursor: pointer;
+  background-size: 30px auto;
+  background-repeat: no-repeat;
+}
+.tinderview .controls.left {
+  background-position: 40% center;
+  background-image: url(../img/chevron-left.png);
+  left: 0px;
+  transform: translate(-100px, 0px);
+}
+.tinderview .controls.right {
+  background-image: url(../img/chevron-right.png);
+  right: 0px;
+  background-position: 60% center;
+  transform: translate(100px, 0px);
+}
+.tinderview .controls:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 1;
+}
+
+.tinderview.show .controls {
+  opacity: 0.3;
+  transform: translate(0px, 0px);
+}
+
+.controls.inactive {
+  opacity: 0 !important;
+  cursor: default !important;
+  background-color: transparent !important;
+}
+
+.filewrapper {
+  *zoom: 1;
+  width: auto;
+  max-width: 900px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  height: 100%;
+}
+.filewrapper:before, .filewrapper:after {
+  content: '';
+  display: table;
+}
+.filewrapper:after {
+  clear: both;
+}
+
+.tinderview .main {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.975);
+  height: 100%;
+  cursor: default;
+  position: absolute;
+  transform: translate(-900px, 0px);
+  opacity: 0;
+  transition: all 0.25s;
+}
+.tinderview .main.keep {
+  transition: all 0.25s 0.15s;
+  transform: translate(0px, 600px) !important;
+  opacity: 0 !important;
+}
+.tinderview .main.away {
+  transition: all 0.25s 0.15s;
+  transform: translate(0px, -600px) !important;
+  opacity: 0 !important;
+}
+
+.main.show {
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+.tinderview .main .contentwrapper {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.tinderview .main .contentwrapper .content {
+  *zoom: 1;
+  width: auto;
+  max-width: 600px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  height: auto;
+  color: grey;
+  padding: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+.tinderview .main .contentwrapper .content:before, .tinderview .main .contentwrapper .content:after {
+  content: '';
+  display: table;
+}
+.tinderview .main .contentwrapper .content:after {
+  clear: both;
+}
+
+.tinderview .main .information {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  font-size: 150%;
+  width: 100%;
+  padding: 1.3em 2em;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px -1px 1px rgba(107, 107, 107, 0.34);
+  transition: all 0.25s;
+  background-image: url(../img/chevron-up.png);
+  background-size: 15px auto;
+  background-repeat: no-repeat;
+  background-position: center 5%;
+}
+.tinderview .main .information:hover {
+  background-position: center 3%;
+  cursor: pointer;
+}
+
+.tinderview .main .information h2 {
+  font-weight: 100;
+}
+.tinderview .main .information h2 .category, .tinderview .main .information h2 .subtitle {
+  opacity: 0.75;
+  font-size: 65%;
+}
+.tinderview .main .information h2 .category {
+  display: inline-block;
+  text-transform: uppercase;
+  float: right;
+}
+.tinderview .main .information h2 .subtitle {
+  margin-top: 0.5em;
+}
+
+.tinderview .main .contentwrapper .decision {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  top: 0px;
+  transition: all 0.25s;
+  opacity: 0;
+  background-position: center 50%;
+  background-size: 30px auto;
+  background-repeat: no-repeat;
+}
+.tinderview .main .contentwrapper .decision.sayNo {
+  left: 0px;
+  background-image: url(../img/close.png);
+}
+.tinderview .main .contentwrapper .decision.sayYes {
+  right: 0px;
+  background-image: url(../img/checkmark.png);
+}
+.tinderview .main .contentwrapper .decision:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: 0.75;
+  cursor: pointer;
+}
+.tinderview .main .contentwrapper .decision.marked {
+  height: 20px !important;
+  background-image: none;
+  opacity: 1 !important;
+}
+.tinderview .main .contentwrapper .decision.yes {
+  background-color: #7cdc37;
+  bottom: 50px;
+  top: auto;
+}
+.tinderview .main .contentwrapper .decision.no {
+  background-color: #d74c15;
+}
+
+/*# sourceMappingURL=style.css.map */

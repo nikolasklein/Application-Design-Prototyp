@@ -1,0 +1,86 @@
+.courseWrapper{
+	@include col($ratios: 1, $cycle: 1);
+	text-align: center;
+	float: left;
+	
+	& h2{
+		transition: color 0.3s;
+		line-height: 3em;
+		color: #fff;
+		font-weight: 100;
+		text-transform: uppercase;
+		padding: 0px;
+	}
+	
+	
+	
+}
+
+.course{
+	font-weight: 100;
+	font-size: 150%;
+	text-align: left;
+	color: #a6a6a6;
+	padding: 2.75em 0px;
+    transition: all 0.25s;
+	position: relative;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	
+	opacity: 0.4;
+	
+	
+	&:hover{
+		cursor: pointer;
+		opacity: 1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+	}
+	
+}
+
+.number{
+
+    font-size: 120%;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: all 0.25s 0.1s;
+
+    &:hover{
+        transition: all 0.25s;
+        cursor: pointer;
+    }
+
+
+    &.inline{
+        display: inline-block;
+        width: 62px;
+        text-align: center;
+        margin: 0px 0.2em;
+        border-color: $green;
+        &:hover{
+            background-color: $green;
+            color: white;
+        }
+    }
+    
+    &.right{
+        display: inline-block;
+        margin: 0px;
+        width: 69px;
+        text-align: center;
+        float: right;
+        border-color: rgba(255, 255, 255, 0.3);
+
+        &:hover{
+            border-color: white;
+            background-color: white;
+            color: $green;
+        }
+
+    }
+        
+}
+
+.course:hover .number.right{
+    border-color: rgba(255, 255, 255, 0.8);
+}
+

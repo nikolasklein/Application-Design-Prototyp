@@ -17,9 +17,10 @@
 		<script src="js/fastclick.js"></script>
 		<script src="js/jquery.easing.js"></script>
 		<script src="js/waypoints.min.js"></script>
+		<script src="js/jquery.disablescroll.min.js"></script>
 
 		<script src="js/basic.js"></script>
-		
+
 		<script>
 			document.createElement('header');
 			document.createElement('footer');
@@ -31,242 +32,327 @@
 
 	</head>
 	<body>
-		<nav>
-			<div class="center">
-				<div class="logo">FileShare</div>
-				<div class="nameSettings">Nikolas Klein</div>
-			</div>
-		</nav>
-
-		<section class="center">		
-<!--
-			<header>
-				<h1>14 neue Dateien</h1>
-			</header>
--->
-			<article>
-				<div class="courseWrapper">
-					<div class="course">
-						<h2>Invention Design</h2>
-						<div class="numberwrapper downloadAll">
-							<div class="number">3</div>
-						</div>
-<!-- 						idea for a secondary menu on hover -->
-						<div class="numberwrapper rightMenu discard">
-							<div class="number">alle verwerfen</div>
-						</div>						
-					</div>
-					<ul class="readmore">
-    					<li>
-                            <div class="download"></div>
-    					    Unterlagen_1.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-    						<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    Spielregeln.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    HandoutNr_3.pdf
-    					    <span class="category">
-    					        Handouts /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-					</ul>
-				</div>
-				<div class="courseWrapper">
-					<div class="course">
-						<h2>Application Design</h2>
-						<div class="numberwrapper downloadAll">
-							<div class="number">5</div>
-						</div>
-					<div class="numberwrapper rightMenu discard">
-							<div class="number">alle verwerfen</div>
-						</div>
-					</div>
-					<ul class="readmore">
-    					<li>
-                            <div class="download"></div>
-    					    Unterlagen_1.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    Spielregeln.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    HandoutNr_3.pdf
-    					    <span class="category">
-    					        Handouts /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    HandoutNr_3.pdf
-    					    <span class="category">
-    					        Handouts /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    HandoutNr_3.pdf
-    					    <span class="category">
-    					        Handouts /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-					</ul>
-					
-				</div>
-				<div class="courseWrapper">
-					<div class="course">
-						<h2>Design- und Mediengeschichte</h2>
-						<div class="numberwrapper downloadAll">
-							<div class="number">4</div>
-						</div>
-						<div class="numberwrapper rightMenu discard">
-							<div class="number">alle verwerfen</div>
-						</div>	
-					</div>
-					<ul class="readmore">
-    					<li>
-                            <div class="download"></div>
-    					    Unterlagen_1.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    Spielregeln.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-                        <li>
-                            <div class="download"></div>
-    					    Spielregeln.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-    					<li>
-                            <div class="download"></div>
-    					    HandoutNr_3.pdf
-    					    <span class="category">
-    					        Handouts /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-					</ul>
-				</div>
-				
-<!--
-				<header>
-					<h1>restlichen Kurse</h1>
-				</header>
--->
-				
-				<div class="courseWrapper">
-					<div class="course">
-						<h2>Projektmanagement</h2>
-						<div class="numberwrapper inactive">
-							<div class="number">0</div>
-						</div>
-					</div>				
-				</div>
-
-				<div class="courseWrapper">
-					<div class="course">
-						<h2>Designtheorie</h2>
-						<div class="numberwrapper downloadAll">
-							<div class="number">1</div>
-						</div>
-						<div class="numberwrapper rightMenu discard">
-							<div class="number">alle verwerfen</div>
-						</div>	
-					</div>
-					<ul class="readmore">
-    					<li>
-                            <div class="download"></div>
-    					    Unterlagen_1.pdf
-    					    <span class="category">
-    					        Unterlagen /
-    					    </span>
-<div class="numberwrapper rightMenu discardRight">
-    							<div class="number">verwerfen</div>
-    						</div>						
-                        </li>
-					</ul>
-				</div>
-
-
-				<div class="courseWrapper">
-					<div class="course">
-						<h2>Englisch</h2>
-						<div class="numberwrapper inactive">
-							<div class="number">0</div>
-						</div>
-					</div>
-				</div>
-				<div class="courseWrapper">
-					<div class="course">
-						<h2>HTML+CSS Tutorium</h2>
-						<div class="numberwrapper inactive">
-							<div class="number">0</div>
-						</div>
-					</div>
-				</div>
-			</article>
-		</section>
+        
+        <div class="mainContent">
+    		<nav>
+    			<div class="center startPage hide fromTop">
+    				<h1 class="hide" id="startPageTitle">Hallo Max! du hast <div class="number inline">5</div> neue Dateien!</h1>
+    				<h1 class="hide fromRight" id="inventiondesignTitle">
+						<span>
+            				APPLICATION DESIGN
+	        				<sub>
+	        					<ul>
+		        					<li id="anzeigen">Filter</li>
+		        					<li id="verknüpfung">Verknüpfung</li>
+		        					<li id="mitglieder">Mitglieder</li>
+	        					</ul>
+	        				</sub>
+						</span>
+                    </h1>
+    			</div>
+    		</nav>
+    		<div id="submenu">
+        		<div class="center subContentWrapper hide fromTop" id="anzeigenContent">
+                    <div class="subContent">
+                        <div class="center">
+                            <ul>
+                                <li class="subSelected">Arbeitsmittel</li>
+                                <li class="subSelected" id="arbeitsunterlagen">Arbeitsunterlagen</li>
+                                <li>Vorlagen</li>
+                                <li class="subSelected">Dokumentationen</li>
+                            </ul>
+                        </div>
+                        <div class="subContentSpace"></div>
+                        <div class="center">
+                            <ul>
+                                <li>Verworfene Dateien anzeigen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        		<div class="center subContentWrapper hide fromTop" id="verknüpfungContent">
+                    <div class="subContent">
+                        <div class="center">
+                            ~/HfG Unterlagen/3. Semester/Application Design/
+                        </div>
+                        <div class="subContentSpace"></div>
+                        <div class="center">
+                            <ul>
+                                <li id="folder">Verknüpften Ordner ändern</li>
+                            </ul>
+                        </div>
+                    </div>
+        		</div>
+        		<div class="center subContentWrapper hide fromTop" id="mitgliederContent">
+                    <div class="subContent">
+                        <div class="center">
+                           <div class="nameColumn">NAME</div>
+                           <div class="mailColumn">EMAIL</div>
+                        </div>
+                        <div class="subContentSpace"></div>
+                        <div class="center">
+                            <div class="nameColumn">
+                                <ul>
+                                    <li>Roman Gerz</li>
+                                    <li>Ester Sandrina Harter</li>
+                                    <li>Anna Foltinek</li>
+                                    <li>Miguel Pawlowski</li>
+                                    <li>Florian Ludwig</li>
+                                    <li>Christoph Labacher</li>
+                                    <li>Werner Schäfner</li>
+                                </ul>
+                            </div>
+                            <div class="mailColumn">
+                                <ul>
+                                    <li>roman.gerz@hfg-gmuend.de</li>
+                                    <li>ester.harter@hfg-gmuend.de</li>
+                                    <li>anna.foltinek@hfg-gmuend.de</li>
+                                    <li>miguel.pawlowski@hfg-gmuend.de</li>
+                                    <li>florian.ludwig@hfg-gmuend.de</li>
+                                    <li>christoph.labacher@hfg-gmuend.de</li>
+                                    <li>werner.schäfner@hfg-gmuend.de</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <input class="addNewOne" placeholder="Tippe einen Namen und eine Email-Adresse ein, um eine weitere Personen hinzuzufügen …">
+                            </input>
+                        </div>
+                    </div>
+        		</div>
+    		</div>
+    		<section class="center startPage">
+    			<article class="contentsWrapper">
+    				<div class="courseWrapper hide fromTop" id="inventiondesign">
+    					<div class="course">
+    						<h2>Application Design <div class="number right">1</div></h2>
+    					</div>
+    				</div>
+    				<div class="courseWrapper hide fromTop" id="applicationdesign">
+    					<div class="course">
+    						<h2>Invention Design <div class="number right">2</div></h2>
+    					</div>
+    				</div>
+    				<div class="courseWrapper hide fromTop" id="designgeschichte">
+    					<div class="course">
+    						<h2>Design- und Mediengeschichte <div class="number right">2</div></h2>
+    					</div>
+    				</div>
+    				<div class="courseWrapper hide fromTop">
+    					<div class="course">
+    						<h2>Projektmanagement</h2>
+    					</div>				
+    				</div>
+    
+    				<div class="courseWrapper hide fromTop">
+    					<div class="course">
+    						<h2>Designtheorie</h2>
+    					</div>
+    				</div>
+    
+    
+    				<div class="courseWrapper hide fromTop">
+    					<div class="course"> 
+    						<h2>Englisch</h2>
+    					</div>
+    				</div>
+    				<div class="courseWrapper hide fromTop">
+    					<div class="course">
+    						<h2>HTML+CSS Tutorium</h2>
+    					</div>
+    				</div>
+    			</article>
+    			<article class="contentsWrapper hide fromRight" id="inventionContents">
+	    			<div class="file hide goAway" id="file1">
+	                    <div class="information">
+	                        <h2>
+	                            Sitzungsplan IG3.pdf
+	                            <div class="subtitle">
+	                                26.10.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide goAway" id="file2">
+	                    <div class="information">
+	                        <h2>
+	                            sondersitzung.pdf
+	                            <div class="subtitle">
+	                                04.10.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide" id="file3">
+	                    <div class="information">
+	                        <h2>
+	                            handout.pdf
+	                            <div class="subtitle">
+	                                1.10.2015 | Anna Foltinek
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide" id="file4">
+	                    <div class="information">
+	                        <h2>
+	                            vorlesungsfolien_.pdf
+	                            <div class="subtitle">
+	                                28.09.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide" id="file5">
+	                    <div class="information">
+	                        <h2>
+	                            Planung_IG3.pdf
+	                            <div class="subtitle">
+	                                17.09.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide" id="file6">
+	                    <div class="information">
+	                        <h2>
+	                            DokumentationMC.pdf
+	                            <div class="subtitle">
+	                                10.09.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide" id="file7">
+	                    <div class="information">
+	                        <h2>
+	                            AbgabenabJetzt_.pdf
+	                            <div class="subtitle">
+	                                07.09.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide" id="file8">
+	                    <div class="information">
+	                        <h2>
+	                            Expose.pdf
+	                            <div class="subtitle">
+	                                01.09.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+	    			<div class="file hide" id="file1">
+	                    <div class="information">
+	                        <h2>
+	                            Semesterplanung.pdf
+	                            <div class="subtitle">
+	                                22.08.2015 | Jürgen Graef
+	                            </div>
+	                        </h2>
+	                    </div>
+	    			</div>
+    			</article>
+    		</section>
+		</div>
+		
+		<div class="tinderview">
+            <div class="controls left inactive"></div>
+            <div class="filewrapper">
+        		<div class="main" id="firstFile">
+                    <div class="contentwrapper">
+                        <div class="decision sayYes"></div>
+                        <div class="decision sayNo"></div>
+                        <div class="content">
+                            <img src="img/sitzungsplan.png" width="100%" height="auto">
+                        </div>
+                    </div>
+                    <div class="information">
+                        <h2>
+                            Sitzungsplan IG3.pdf
+                            <div class="category">Unterrichtsmaterial</div>
+                            <div class="subtitle">
+                                26.10.2015 | Daniela Baumann in Design- und Mediengeschichte
+                            </div>
+                        </h2>
+                    </div>
+        		</div>
+        		<div class="main" id="secondFile">
+                    <div class="contentwrapper">
+                        <div class="decision sayYes"></div>
+                        <div class="decision sayNo"></div>
+                        <div class="content">
+                            <img src="img/invention.png" width="100%" height="auto">
+                        </div>
+                    </div>
+                    <div class="information">
+                        <h2>
+                            Informationsanalysen.pdf
+                            <div class="category">Unterrichtsmaterial</div>
+                            <div class="subtitle">
+                                26.10.2015 | Jürgen Graef in Invention Design
+                            </div>
+                        </h2>
+                    </div>
+        		</div>
+        		<div class="main" id="thirdFile">
+                    <div class="contentwrapper">
+                        <div class="decision sayYes"></div>
+                        <div class="decision sayNo"></div>
+                        <div class="content">
+                            <img src="img/application_termine.png" width="100%" height="auto">
+                        </div>
+                    </div>
+                    <div class="information">
+                        <h2>
+                            ApplicationDesignTermine.pdf
+                            <div class="category">Unterrichtsmaterial</div>
+                            <div class="subtitle">
+                                26.10.2015 | Jürgen Graef in Application Design
+                            </div>
+                        </h2>
+                    </div>
+        		</div>
+        		<div class="main" id="fourthFile">
+                    <div class="contentwrapper">
+                        <div class="decision sayYes"></div>
+                        <div class="decision sayNo"></div>
+                        <div class="content">
+                            <img src="img/application_literatur.png" width="100%" height="auto">
+                        </div>
+                    </div>
+                    <div class="information">
+                        <h2>
+                            designprocess.pdf
+                            <div class="category">Unterrichtsliteratur</div>
+                            <div class="subtitle">
+                                10.10.2015 | Jürgen Graef in Application Design
+                            </div>
+                        </h2>
+                    </div>
+        		</div>
+        		<div class="main" id="fifthFile">
+                    <div class="contentwrapper">
+                        <div class="decision sayYes"></div>
+                        <div class="decision sayNo"></div>
+                        <div class="content">
+                            <img src="img/designgeschichte_2.png" width="100%" height="auto">
+                        </div>
+                    </div>
+                    <div class="information">
+                        <h2>
+                            4-Sitzung.pdf
+                            <div class="category">Unterrichtsmaterial</div>
+                            <div class="subtitle">
+                                02.10.2015 | Daniela Baumann in Design- und Mediengeschichte
+                            </div>
+                        </h2>
+                    </div>
+        		</div>
+            </div>
+            <div class="controls right inactive"></div>
+		</div>
+		
 	</body>
 </html>

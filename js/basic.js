@@ -1,321 +1,222 @@
 $(document).ready(function(){
+    
+    var saveDocumentTitle = document.title;
+    var mainContentHeight = $(".mainContent")[0].scrollHeight;
+    
 
-    $(".numberwrapper").click(function(){
+    $(".number").click(function(){
+        $(".tinderview").fadeIn(200);
+        $(".tinderview").addClass("show");
+        showNextFile();
+        newNumber = $(this).html();
+        document.title = "1/" + newNumber + " neuen Dateien";
+        $(".mainContent").disablescroll();
+
+        var newHeight = $(".main").height() - $(".information").outerHeight();
+        $(".contentwrapper, .decision").css({"height" : newHeight + "px" });
+        
+    });
+    
+
+    $(".tinderview").click(function(){
+        $(".tinderview").fadeOut(200);
+        $(".tinderview").removeClass("show");
+        document.title = saveDocumentTitle;
+        $(".mainContent").disablescroll("undo");
+    })
+
+    $(".startPage.fromTop, .courseWrapper").each(function(i){
+        var whichOne = $(this);
+        setTimeout(function(){
+            whichOne.removeClass("fromTop")
+        }, 35*i);
+    });
+
+    $(".tinderview .controls, .tinderview .main").click(function(event){
         event.stopPropagation();
+    })
+    
+    $("#inventiondesign").click(function(){
+        $("#inventiondesignTitle").removeClass("fromRight");
+        $("#startPageTitle").addClass("fromLeft");
+        $("nav").addClass("courseView");
+        $("#inventionContents").removeClass("fromRight");
+        $(".courseWrapper").each(function(i){
+	        var whichOne = $(this);
+	        setTimeout(function(){
+	            whichOne.addClass("fromLeft")
+	        }, 35*i);
+        })
+
+        $(".file").each(function(i){
+	        var whichOne = $(this);
+	        setTimeout(function(){
+	            whichOne.removeClass("fromRight")
+	        }, 35*i);
+        })
+
+    })
+
+    $("#inventiondesignTitle span").click(function(e){
+		e.stopPropagation();
     });
-   
-    $(".discard, .numberwrapper").click(function(){
-        var thisOne = $(this).parent();
-        var child = thisOne.children(".downloadAll");
-        child.addClass("inactive");
-        thisOne.parent().children(".readmore").children("li").children(".download").addClass("inactive");
-        thisOne.parent().children(".readmore").children("li").children(".discardRight").addClass("inactive");        
-        child.html("<div class='number'>0</div>");
-        thisOne.addClass("noFiles");
+
+    $("#inventiondesignTitle").click(function(){
+        $("#inventiondesignTitle").addClass("fromRight");
+        $("#startPageTitle").removeClass("fromLeft");
+        $("nav").removeClass("courseView");
+        $("#inventionContents").addClass("fromRight");
+
+        $(".courseWrapper").each(function(i){
+	        var whichOne = $(this);
+	        setTimeout(function(){
+	            whichOne.removeClass("fromLeft")
+	        }, 35*i);
+        })
+
+        $(".file").each(function(i){
+	        var whichOne = $(this);
+	        setTimeout(function(){
+	            whichOne.addClass("fromRight")
+	        }, 35*i);
+        })
     });
     
-    $(".discardRight").click(function(){
-        var thisOne = $(this).parent().children(".download");
-        var wholenumber = $(this).parent().parent().parent().children(".course").children(".downloadAll").children(".number");
-        switch (wholenumber.html()){
-            case "9":
-                wholenumber.html("8");
+    $("#inventiondesignTitle span sub ul li").click(function(){
+        var whichToShow = $(this).attr("id");
+
+        $(".subContentWrapper").addClass("fromTop");
+        
+        if(!$(this).hasClass("selected")){
+            $(".selected").removeClass("selected");
+            $(this).addClass("selected");
+            $("#submenu").addClass("shown");
+            $("#" + whichToShow + "Content").removeClass("fromTop");
+        }else{
+            $(".selected").removeClass("selected");
+            $("#submenu").removeClass("shown");
+        }
+
+
+
+        // hier eventuell noch die höhe anpassen, falls es einzelne cases gibt, in denen etwas anders dargestellt wird
+        switch(whichToShow){
+            case "anzeigen":
+                $(".mainContent").disablescroll("undo");
+                $("#submenu").removeClass("mailList");
                 break;
-            case "8":
-                wholenumber.html("7");
+
+            case "verknüpfung":
+                $(".mainContent").disablescroll("undo");
+                $("#submenu").removeClass("mailList");
                 break;
-            case "7":
-                wholenumber.html("6");
-                break;
-            case "6":
-                wholenumber.html("5");
-                break;
-            case "5":
-                wholenumber.html("4");
-                break;
-            case "4":
-                wholenumber.html("3");
-                break;
-            case "3":
-                wholenumber.html("2");
-                break;
-            case "2":
-                wholenumber.html("1");
-                break;
-            case "1":
-                wholenumber.html("0");
-                wholenumber.parent().addClass("inactive");
-                wholenumber.parent().parent().addClass("noFiles");
+
+            case "mitglieder":
+                $("#submenu").addClass("mailList");
+                $(".mainContent").disablescroll();
+                $("#submenu").disablescroll("undo");
                 break;
         }
-        thisOne.addClass("inactive");
-        $(this).addClass("inactive");
+
+    });
+    
+    $(".subContent li").click(function(){
+       $(this).toggleClass("subSelected");
     });
 
-    $(".readmore li").click(function(){
-        var thisOne = $(this).children(".download");
-        $(this).children(".discardRight").addClass("inactive");        
-        var wholenumber = $(this).parent().parent().children(".course").children(".downloadAll").children(".number");
-        switch (wholenumber.html()){
-            case "9":
-                wholenumber.html("8");
-                break;
-            case "8":
-                wholenumber.html("7");
-                break;
-            case "7":
-                wholenumber.html("6");
-                break;
-            case "6":
-                wholenumber.html("5");
-                break;
-            case "5":
-                wholenumber.html("4");
-                break;
-            case "4":
-                wholenumber.html("3");
-                break;
-            case "3":
-                wholenumber.html("2");
-                break;
-            case "2":
-                wholenumber.html("1");
-                break;
-            case "1":
-                wholenumber.html("0");
-                wholenumber.parent().addClass("inactive");
-                wholenumber.parent().parent().addClass("noFiles");
-                break;
+
+    $(".decision").click(function(){
+        $(this).addClass("marked");
+        if($(this).hasClass("sayYes")){
+            $(this).addClass("yes");
+
+            var saveThis = $(this)
+            setTimeout(function(){
+                saveThis.parent().parent().addClass("keep");
+            }, 50);
+        }else {
+            $(this).addClass("no");
+
+            var saveThis = $(this)
+            setTimeout(function(){
+                saveThis.parent().parent().addClass("away");
+            }, 50);
         }
-        thisOne.addClass("inactive");
-    }); 
-   
+        setTimeout(function(){
+            if(whichIsNext == "close"){
+                $(".tinderview").click();
+            }
+            showNextFile();
+        }, 300);
+    });
     
-    $(".course").click(function(){
-		var thisOne = $(this).parent();
-		
-		var x=thisOne.offset().top;
-		var w=$(document).scrollTop();
-		var thisActive = thisOne.hasClass("active");
+    $("#arbeitsunterlagen").click(function(){
+        $(".goAway").fadeToggle(300);
+    });
 
-
-		thisOne.toggleClass("active");		
-
-		thisOne.children(".readmore").slideToggle(300, "easeInOutCubic", function(){		
-			if(!thisActive){
-				var z=thisOne.outerHeight();
-				var y=$(window).height();
-				
-				if(y<x-w+z){
-					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
-				}else if(y-((x-w)+z) < 50){
-					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
-				}else if(w>x){
-					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
-				};
-			}
-		});
-
-		onceclicked = false;
-
-		var checkIfOpen = $(".course").get();
-		$.each(checkIfOpen, function(i, item){
-			if($(item).hasClass("active")){
-				onceclicked = true;
-			}
-		});
-	});
-
+    $(".mainContent").scroll(function(){
+        var scrolled = Math.round(($(".mainContent").scrollTop() / mainContentHeight) * 100);
+        $(this).css({"background-position" : "center " + scrolled + "%"});
+    });
+    
+    $(".addNewOne").keypress(function(e) {
+        if(e.which == 13) {
+            $(".nameColumn ul").append("<li>Nikolas Klein</li>");
+            $(".mailColumn ul").append("<li>nikolas.klein@hfg-gmuend.de</li>");
+            $(this).val("");
+        }
+    });
 
 });
 
-/* ################## alter code vom tutorienprogramm
-
-window.addEventListener('load', function() {
-    FastClick.attach(document.body);
-}, false);
-
-var windowHeight = $(window).height();
-var	windowWidth = $(window).width();
-var onceclicked = false;
-var waited = false;
+var whichIsNext = "firstFile";
+var newNumber;
 
 
-$(document).ready(function(){
+// reihenfolge
+// designgeschichte
+// invention
+// application
+// applicatin
+// designgeschichte
 
-	
-	windowHeight = $(window).height();
-	windowWidth = $(window).width();
-	$(".furtherinfo").click(function(event){
-		event.stopPropagation();
-	});
-	
-	$(".tutorium").click(function(){
-		var thisOne = $(this);
-		
-		var x=thisOne.offset().top;
-		var w=$(document).scrollTop();
-		var thisActive = thisOne.hasClass("active");
-
-		
-		if(thisActive){
-			thisOne.addClass("backgroundBack");
-		}else{
-			thisOne.removeClass("backgroundBack");
-		}
-
-		thisOne.toggleClass("active");		
-
-		thisOne.children(".furtherinfo").slideToggle(300, "easeInOutCubic", function(){		
-			if(!thisActive){
-				var z=thisOne.outerHeight();
-				var y=$(window).height();
-				
-				if(y<x-w+z){
-					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
-				}else if(y-((x-w)+z) < 50){
-					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
-				}else if(w>x){
-					$("html, body").animate({ scrollTop: x-y/15}, 300, "easeInOutCubic");
-				};
-			}
-		});
-
-		onceclicked = false;
-
-		var checkIfOpen = $(".tutorium").get();
-		$.each(checkIfOpen, function(i, item){
-			if($(item).hasClass("active")){
-				onceclicked = true;
-			}
-		});
-	});
-	
-	$("header div").addClass("fadeInSide");
-	
-	$("header").removeClass("nobg");
-
-	
-	
-	$(".points").waypoint(function(direction) {
-		if(windowWidth > 699){
-			var divs = $(".pointFade").get();
-	
-			$.each(divs, function(i, item) {
-				//console.log(i);
-				setTimeout(function() {
-					$(item).addClass("fadeInUp");
-				}, 80 * i);
-			});			
-		}
-	}, {offset: windowHeight-35});
-
-	$(".points").waypoint(function(direction) {
-		if(windowWidth > 699 && direction == "up" && !onceclicked){
-			var divs = $(".pointcolumn").get();
-	
-			$.each(divs, function(i, item) {
-				//console.log(i);
-				setTimeout(function() {
-					$(item).removeClass("fadeInUp");
-				}, 170 * i);
-			});			
-		}
-	}, {offset: windowHeight-10});
-	
-	
-	$(".pointcolumn").waypoint(function(direction){
-		if(windowWidth < 700 && !onceclicked){
-			$(this).addClass("fadeInUp");
-		}
-	}, {offset: windowHeight-35});
-
-
-	
-	$(".pointcolumn").waypoint(function(direction){
-		if(windowWidth < 700 && direction == "up" && !onceclicked){
-			$(this).removeClass("fadeInUp");
-		}
-	}, {offset: windowHeight-10});
-
-
-
-	$(".moreinformation").waypoint(function(direction) {
-		var divs = $(".elementFade").get();
-
-		$.each(divs, function(i, item) {
-			//console.log(i);
-			setTimeout(function() {
-				$(item).addClass("fadeInUp");
-			}, 150 * i);
-		});
-	}, {offset: windowHeight-35});
-	
-	$(".moreinformation").waypoint(function(direction) {
-		if(direction == "up" && !onceclicked){
-			var divs = $(".elementFade").get();
-	
-			$.each(divs, function(i, item) {
-				//console.log(i);
-				setTimeout(function() {
-					$(item).removeClass("fadeInUp");
-				}, 150 * i);
-			});
-		}
-	}, {offset: windowHeight-10});
-
-
-	
-	
-	
-
-	$(".elementFadeIn").waypoint(function(direction) {
-		$(this).addClass("fadeInUp");
-		$(this).children(".applybutton").addClass("fadeInUp");
-	}, {offset: windowHeight-35});
-
-	$(".elementFadeIn").waypoint(function(direction) {
-		if(direction == "up" && !onceclicked){
-			$(this).removeClass("fadeInUp");
-			$(this).children(".applybutton").removeClass("fadeInUp");
-		}
-	}, {offset: windowHeight-10});
-
-
-
-	$(".tutorium").waypoint(function(direction) {
-		$(this).addClass("fadeInSide");		
-	}, {offset: windowHeight-35});	
-	
-	$(".tutorium").waypoint(function(direction) {
-		if(direction == "up" && !onceclicked){
-			$(this).removeClass("fadeInSide");
-		}
-	}, {offset: windowHeight-10});
-	
-	
-	
-	
-	
-	$('a[href*=#]:not([href=#])').click(function() {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html,body').animate({
-					scrollTop: target.offset().top-30
-				}, 600, "easeInOutCubic");
-				return false;
-			}
-		}
-	});	
-	
-});
-
-
-
-$(window).resize(function(){
-	windowHeight = $(window).height();
-	windowWidth = $(window).width();
-});
-*/
+function showNextFile(){
+    switch (whichIsNext){
+        case "firstFile":
+            $("#" + whichIsNext).addClass("show");
+            whichIsNext = "secondFile";
+            break;
+        case "secondFile":
+            $("#" + whichIsNext).addClass("show");
+            whichIsNext = "thirdFile";
+            $(".mainContent nav .center.startPage .number").html("4");
+            $("#designgeschichte .course .number").html("1")
+            document.title = "2/" + newNumber + " neuen Dateien";
+            break;
+        case "thirdFile":
+            $("#" + whichIsNext).addClass("show");
+            whichIsNext = "fourthFile";
+            $(".mainContent nav .center.startPage .number").html("3");
+            $("#inventiondesign .course").html("<h2>Application Design</h2>")
+            document.title = "3/" + newNumber + " neuen Dateien";
+            break;
+        case "fourthFile":
+            $("#" + whichIsNext).addClass("show");
+            whichIsNext = "fifthFile";
+            $(".mainContent nav .center.startPage .number").html("2");
+            $("#applicationdesign .course .number").html("1")
+            document.title = "4/" + newNumber + " neuen Dateien";
+            break;
+        case "fifthFile":
+            $("#" + whichIsNext).addClass("show");
+            $(".mainContent nav .center.startPage .number").html("1");
+            $("#applicationdesign .course").html("<h2>Invention Design</h2>")
+            document.title = "5/" + newNumber + " neuen Dateien";
+            whichIsNext = "close";
+            break;
+        case "close":
+            $("#designgeschichte .course").html("<h2>Design- und Mediengeschichte</h2>")
+            $(".mainContent nav .center.startPage h1#startPageTitle").html("Du hast keine neuen Dateien. Genieße den Tag Max!")
+            break;
+    }
+}
