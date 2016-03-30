@@ -1,4 +1,4 @@
-# Application-Design-Prototyp-Tinder-for-Files
+# Tinder for Files
 Prototype for a 3rd semester project in application design
 
 Read more: [Tinder for Files — Ein HfG Filesharingsystem](http://ig.hfg-gmuend.de/Members/nikolas_klein/meine-projekte/hfg-filesharingsystemm)
