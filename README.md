@@ -1,2 +1,2 @@
 # Application-Design-Prototyp
-Prototyp Entwicklug für unser Application Design Projekt im 3. Semester
+Prototype for a 3rd semester project in application design.
